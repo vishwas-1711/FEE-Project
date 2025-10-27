@@ -1,0 +1,177 @@
+========================================
+REACT NETFLIX APP - SETUP GUIDE
+========================================
+
+STEP 1: Install Dependencies
+-----------------------------
+Open PowerShell/Command Prompt in the react-netflix-app folder and run:
+
+    npm install
+
+This will install React and all required packages.
+
+
+STEP 2: Copy Images and Video
+------------------------------
+You need to copy the images and video folders from your original project:
+
+From: D:\scratch_main\Nerflix-website-main\images
+To:   D:\scratch_main\react-netflix-app\public\images
+
+From: D:\scratch_main\Nerflix-website-main\video
+To:   D:\scratch_main\react-netflix-app\public\video
+
+In PowerShell, you can run:
+
+    xcopy /E /I "D:\scratch_main\Nerflix-website-main\images" "D:\scratch_main\react-netflix-app\public\images"
+    xcopy /E /I "D:\scratch_main\Nerflix-website-main\video" "D:\scratch_main\react-netflix-app\public\video"
+
+
+STEP 3: Run the Application
+----------------------------
+After copying files, start the development server:
+
+    npm start
+
+The app will automatically open in your browser at http://localhost:3000
+
+
+========================================
+PROJECT STRUCTURE
+========================================
+
+react-netflix-app/
+│
+├── public/
+│   ├── index.html          # Main HTML file
+│   ├── images/             # All your movie/show images (COPY FROM ORIGINAL)
+│   │   ├── favorite/
+│   │   ├── popular/
+│   │   ├── trending/
+│   │   ├── suggested/
+│   │   ├── episodes/
+│   │   ├── top-10/
+│   │   ├── logo.png
+│   │   └── ...
+│   └── video/              # Trailer video (COPY FROM ORIGINAL)
+│       └── trailer.mp4
+│
+├── src/
+│   ├── pages/
+│   │   ├── Index.js        # Landing page (the signup page)
+│   │   ├── Index.css       # Landing page styles
+│   │   ├── Main.js         # Main streaming page
+│   │   └── Main.css        # Main page styles
+│   ├── App.js              # Main app component with routing
+│   ├── App.css             # Global app styles
+│   ├── index.js            # React entry point
+│   └── index.css           # Base CSS
+│
+├── package.json            # Dependencies and scripts
+└── README.md               # Full documentation
+
+
+========================================
+HOW IT WORKS
+========================================
+
+TWO PAGES:
+
+1. INDEX PAGE (Landing) - Route: /
+   - This is your signup/landing page
+   - Has email signup form
+   - Features section with videos
+   - FAQ accordion
+   - Sign-in modal
+   - Clicking "Get Started" takes you to Main page
+
+2. MAIN PAGE (Streaming) - Route: /main
+   - This is the Netflix-style streaming interface
+   - Has hero slider with movies
+   - "Watch Trailer" button opens video modal
+   - Multiple carousel sections for movies
+   - Top navigation with logout
+
+NAVIGATION:
+- Start at "/" (Index/Landing page)
+- Enter email and click "Get Started" → goes to "/main"
+- Click user icon and logout → goes back to "/"
+
+
+========================================
+KEY FEATURES
+========================================
+
+✓ React Router for navigation between pages
+✓ React Slick for carousels/sliders
+✓ Video modal for trailer playback
+✓ Sign-in modal functionality
+✓ FAQ accordion
+✓ Responsive design
+✓ All images from original project work
+✓ Trailer video plays from local file
+
+
+========================================
+IMPORTANT NOTES
+========================================
+
+1. Images and video MUST be in public folder:
+   - public/images/...
+   - public/video/trailer.mp4
+
+2. The app references images like:
+   - /images/favorite/f1.jpg
+   - /images/popular/u1.jpg
+   - /video/trailer.mp4
+
+3. Make sure trailer.mp4 exists in public/video/
+
+4. No backend - uses localStorage for simple state
+
+5. To stop the server: Press Ctrl+C in terminal
+
+
+========================================
+BUILDING FOR PRODUCTION
+========================================
+
+When ready to deploy:
+
+    npm run build
+
+This creates a "build" folder with optimized files.
+Deploy the build folder to any static hosting service.
+
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Problem: Images don't show
+Solution: Make sure you copied the images folder to public/
+
+Problem: Video doesn't play
+Solution: Make sure trailer.mp4 is in public/video/
+
+Problem: npm install fails
+Solution: Make sure Node.js is installed (download from nodejs.org)
+
+Problem: Port 3000 already in use
+Solution: The app will ask to use a different port, or:
+          - Find and close the other app using port 3000
+          - Or change the port in package.json
+
+Problem: Sliders don't work
+Solution: Make sure react-slick is installed (run npm install again)
+
+
+========================================
+NEED HELP?
+========================================
+
+Check README.md for detailed documentation
+All React component code is in src/pages/
+All styles are in corresponding .css files
+
+Enjoy your React Netflix clone! 🎬
